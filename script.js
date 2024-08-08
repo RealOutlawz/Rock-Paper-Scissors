@@ -1,24 +1,40 @@
-// Create function, getComputerChoice to 
-//return a string value of rock paper or scissors.
-//Use math.random to generate a number multiplied by 100
-//Convert to a whole number and divide them out by 3 for each choice.
-function getComputerChoice(){
-    let numGenerator = Math.floor(Math.random() * 100);
-        if(numGenerator < 33){
-            console.log("The computer picked Rock");
-            return "Rock";
-        } else if(numGenerator < 66){
-            console.log("The computer picked Scissors");
-            return "Scissors";
-        } else{
-            console.log("The computer picked Paper");
-            return "Paper";
-        }
-}
-let userChoice = prompt("Please enter your choice of Rock, Paper, or Scissors: ")
-/*Use prompt to get user's choice and run it through
-some if statents to make sure their input is valid.*/
-function getHumanChoice(){
+/*Created function named playGame to run game a total
+of 5 times */
+function playGame(){
+
+    //Initialize computer and users scores to 0
+    let humanScore = 0;
+    let computerScore = 0;
+
+    //create constant variables for the functions and called them
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+
+
+    /*Create function, getComputerChoice to return a string
+    value of rock paper or scissors. Use math.random to
+    generate a number multiplied by 100 Convert to a 
+    hole number and divide them out by 3 for each choice. */
+    function getComputerChoice(){
+        let numGenerator = Math.floor(Math.random() * 100);
+            if(numGenerator < 33){
+                console.log("The computer picked Rock");
+                return "Rock";
+            } else if(numGenerator < 66){
+                console.log("The computer picked Scissors");
+                return "Scissors";
+            } else{
+                console.log("The computer picked Paper");
+                return "Paper";
+            }
+    }
+
+    
+    /*Use prompt to get user's choice and run it through
+    some if statents to make sure their input is valid.*/
+    function getHumanChoice(){
+    let userChoice = prompt("Please enter your choice of Rock, Paper, or Scissors: ")
     userChoice = userChoice.toLowerCase(); 
     if(userChoice === "rock"){
         console.log("You picked Rock");
@@ -34,15 +50,6 @@ function getHumanChoice(){
     }
 }
 
-
-
-
-
-
-function playGame(){
-    //Initialize computer and users scores to 0
-    let humanScore = 0;
-    let computerScore = 0;
 
     /* Get user and computer choices, and put them as argument
     against each other to determine the winnner and update the
@@ -64,6 +71,5 @@ function playGame(){
         }      
     }
 }
-//create constant variables for the functions
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+
+playGame();
