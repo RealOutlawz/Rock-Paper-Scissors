@@ -5,25 +5,28 @@
 function getComputerChoice(){
     let numGenerator = Math.floor(Math.random() * 100);
         if(numGenerator < 33){
+            console.log("The computer picked Rock");
             return "Rock";
         } else if(numGenerator < 66){
+            console.log("The computer picked Scissors");
             return "Scissors";
         } else{
+            console.log("The computer picked Paper");
             return "Paper";
         }
 }
-
+let userChoice = prompt("Please enter your choice of Rock, Paper, or Scissors: ")
 /*Use prompt to get user's choice and run it through
 some if statents to make sure their input is valid.*/
 function getHumanChoice(){
-    let userChoice = prompt("Please enter your choice of Rock, Paper, or Scissors: ")
-    if(userChoice == "Rock"){
+    userChoice = userChoice.toLowerCase(); 
+    if(userChoice === "rock"){
         console.log("You picked Rock");
         return "Rock";
-    } else if(userChoice == "Paper"){
+    } else if(userChoice === "paper"){
         console.log("You picked Paper");
         return "Paper";
-    } else if(userChoice == "Scissors"){
+    } else if(userChoice === "scissors"){
         console.log("You picked Scissors");
         return "Scissors";
     } else{
@@ -39,6 +42,24 @@ let computerScore = 0;
 against each other to determine the winnner and update the
 scores.
 */
-function playRound(userChoice, computerChoice){
-
+function playRound(humanChoice, computerChoice){
+    if(humanChoice === "Rock" && computerChoice === "Paper" ||
+    humanChoice === "Paper" && computerChoice === "Scissors" ||
+    humanChoice === "Scissors" && computerChoice === "Rock"){
+        console.log("The computer has won!");
+        computerScore++;
+    } else if(humanChoice === "Rock" && computerChoice === "Scissors" ||
+            humanChoice === "Paper" && computerChoice === "Rock" ||
+            humanChoice === "Scissors" && computerChoice === "Paper"){
+                console.log("You have won!");
+                humanScore++;
+    } else if(humanChoice === computerChoice){
+        console.log("Tied! No winners, try again!")
+    }      
 }
+
+//create constant variables for the functions
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+// initialize game loop
+playRound(humanChoice, computerChoice);
