@@ -34,32 +34,36 @@ function getHumanChoice(){
     }
 }
 
-//Initialize computer and users scores to 0
-let humanScore = 0;
-let computerScore = 0;
 
-/* Get user and computer choices, and put them as argument
-against each other to determine the winnner and update the
-scores.
-*/
-function playRound(humanChoice, computerChoice){
-    if(humanChoice === "Rock" && computerChoice === "Paper" ||
-    humanChoice === "Paper" && computerChoice === "Scissors" ||
-    humanChoice === "Scissors" && computerChoice === "Rock"){
-        console.log("The computer has won!");
-        computerScore++;
-    } else if(humanChoice === "Rock" && computerChoice === "Scissors" ||
-            humanChoice === "Paper" && computerChoice === "Rock" ||
-            humanChoice === "Scissors" && computerChoice === "Paper"){
-                console.log("You have won!");
-                humanScore++;
-    } else if(humanChoice === computerChoice){
-        console.log("Tied! No winners, try again!")
-    }      
+
+
+
+
+function playGame(){
+    //Initialize computer and users scores to 0
+    let humanScore = 0;
+    let computerScore = 0;
+
+    /* Get user and computer choices, and put them as argument
+    against each other to determine the winnner and update the
+    scores.
+    */
+    function playRound(humanChoice, computerChoice){
+        if(humanChoice === "Rock" && computerChoice === "Paper" ||
+        humanChoice === "Paper" && computerChoice === "Scissors" ||
+        humanChoice === "Scissors" && computerChoice === "Rock"){
+            console.log("The computer has won!");
+            computerScore++;
+        } else if(humanChoice === "Rock" && computerChoice === "Scissors" ||
+                humanChoice === "Paper" && computerChoice === "Rock" ||
+                humanChoice === "Scissors" && computerChoice === "Paper"){
+                    console.log("You have won!");
+                    humanScore++;
+        } else if(humanChoice === computerChoice){
+            console.log("Tied! No winners, try again!")
+        }      
+    }
 }
-
 //create constant variables for the functions
 const humanChoice = getHumanChoice();
 const computerChoice = getComputerChoice();
-// initialize game loop
-playRound(humanChoice, computerChoice);
