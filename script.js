@@ -47,10 +47,11 @@ function playGame(){
             console.log("You picked Scissors");
             return "Scissors";
         } else{
-        console.log("You entered an invalid choice. Please check your spelling and try again.");
-        getHumanChoice();
+            console.log("You entered an invalid choice. Please check your spelling and try again.");
+            getHumanChoice();
         }
     }
+
 
     /* Get user and computer choices, and put them as argument
     against each other to determine the winnner and update the
@@ -69,20 +70,20 @@ function playGame(){
                     humanScore++;
         } else if(humanChoice === computerChoice){
             console.log("Tied! No winners, try again!")
-        }      
+        }else if(humanChoice === null){
+            return 0;
+        } 
     }
 
-console.log("Your Score: " + humanScore);
-console.log("Computer Score: " + computerScore); 
+    console.log("Your Score: " + humanScore);
+    console.log("Computer Score: " + computerScore); 
 
-if(humanScore > computerScore){
+    if(humanScore > computerScore){
     console.log("You won!")
-} else if(humanScore < computerScore){
+    } else if(humanScore < computerScore){
     console.log("You lost!")
-} else {
+    } else {
     console.log("You and the computer tied!")
+    }
 }
-
-}
-
 playGame();
