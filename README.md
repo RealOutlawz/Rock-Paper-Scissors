@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-# This project will demostrate my ability to use html, css and javascript to create a rock paper scissors game that will go 5 rounds with a fully automated comptuer making random choices.
+# This project will demostrate my ability to use html and javascript to create a rock paper scissors game that will go 5 rounds with a fully automated computer making random choices.
