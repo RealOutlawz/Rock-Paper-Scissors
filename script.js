@@ -1,16 +1,18 @@
-/*Created function named playGame to run game a total
-of 5 times */
+/*Created function named playGame to store all
+functions in */
 function playGame(){
 
     //Initialize computer and users scores to 0
     let humanScore = 0;
     let computerScore = 0;
 
-    //create constant variables for the functions and called them
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
-
+    //Loops through the game 5 times before terminating.
+    for ( let i = 0; i < 5; i++){
+        //create constant variables for the functions and called them
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    }
 
     /*Create function, getComputerChoice to return a string
     value of rock paper or scissors. Use math.random to
@@ -29,27 +31,25 @@ function playGame(){
                 return "Paper";
             }
     }
-
     
     /*Use prompt to get user's choice and run it through
     some if statents to make sure their input is valid.*/
     function getHumanChoice(){
-    let userChoice = prompt("Please enter your choice of Rock, Paper, or Scissors: ")
-    userChoice = userChoice.toLowerCase(); 
-    if(userChoice === "rock"){
-        console.log("You picked Rock");
-        return "Rock";
-    } else if(userChoice === "paper"){
-        console.log("You picked Paper");
-        return "Paper";
-    } else if(userChoice === "scissors"){
-        console.log("You picked Scissors");
-        return "Scissors";
-    } else{
+        let userChoice = prompt("Please enter your choice of Rock, Paper, or Scissors: ")
+        userChoice = userChoice.toLowerCase(); 
+        if(userChoice === "rock"){
+            console.log("You picked Rock");
+            return "Rock";
+        } else if(userChoice === "paper"){
+            console.log("You picked Paper");
+            return "Paper";
+        } else if(userChoice === "scissors"){
+            console.log("You picked Scissors");
+            return "Scissors";
+        } else{
         console.log("You enetered an invalid choice. Please check your spelling and try again.");
+        }
     }
-}
-
 
     /* Get user and computer choices, and put them as argument
     against each other to determine the winnner and update the
@@ -70,6 +70,14 @@ function playGame(){
             console.log("Tied! No winners, try again!")
         }      
     }
+
+console.log("Your Score: " + humanScore);
+console.log("Computer Score: " + computerScore); 
+
+    function scoresNWinnters(){
+ 
+    }
+
 }
 
 playGame();
