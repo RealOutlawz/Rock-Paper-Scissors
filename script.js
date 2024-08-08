@@ -15,16 +15,30 @@ function getComputerChoice(){
 
 /*Use prompt to get user's choice and run it through
 some if statents to make sure their input is valid.*/
-let userChoice = prompt("Pleaase enter your choice of Rock, Paper, or Scissors: ")
-
-function getHumanChoice(userChoice){
-    if(userChoice === "Rock"){
+function getHumanChoice(){
+    let userChoice = prompt("Please enter your choice of Rock, Paper, or Scissors: ")
+    if(userChoice == "Rock"){
+        console.log("You picked Rock");
         return "Rock";
-    } else if(userChoice === "Paper"){
+    } else if(userChoice == "Paper"){
+        console.log("You picked Paper");
         return "Paper";
-    } else if(userChoice === "Scissors"){
+    } else if(userChoice == "Scissors"){
+        console.log("You picked Scissors");
         return "Scissors";
     } else{
-        alert("You enetered an invalid choice. Please check your spelling and try again.");
+        console.log("You enetered an invalid choice. Please check your spelling and try again.");
     }
+}
+
+//Initialize computer and users scores to 0
+let humanScore = 0;
+let computerScore = 0;
+
+/* Get user and computer choices, and put them as argument
+against each other to determine the winnner and update the
+scores.
+*/
+function playRound(userChoice, computerChoice){
+
 }
