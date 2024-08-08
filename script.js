@@ -47,7 +47,8 @@ function playGame(){
             console.log("You picked Scissors");
             return "Scissors";
         } else{
-        console.log("You enetered an invalid choice. Please check your spelling and try again.");
+        console.log("You entered an invalid choice. Please check your spelling and try again.");
+        getHumanChoice();
         }
     }
 
@@ -59,12 +60,12 @@ function playGame(){
         if(humanChoice === "Rock" && computerChoice === "Paper" ||
         humanChoice === "Paper" && computerChoice === "Scissors" ||
         humanChoice === "Scissors" && computerChoice === "Rock"){
-            console.log("The computer has won!");
+            console.log("The computer won this round!");
             computerScore++;
         } else if(humanChoice === "Rock" && computerChoice === "Scissors" ||
                 humanChoice === "Paper" && computerChoice === "Rock" ||
                 humanChoice === "Scissors" && computerChoice === "Paper"){
-                    console.log("You have won!");
+                    console.log("You won this round!");
                     humanScore++;
         } else if(humanChoice === computerChoice){
             console.log("Tied! No winners, try again!")
@@ -74,9 +75,13 @@ function playGame(){
 console.log("Your Score: " + humanScore);
 console.log("Computer Score: " + computerScore); 
 
-    function scoresNWinnters(){
- 
-    }
+if(humanScore > computerScore){
+    console.log("You won!")
+} else if(humanScore < computerScore){
+    console.log("You lost!")
+} else {
+    console.log("You and the computer tied!")
+}
 
 }
 
