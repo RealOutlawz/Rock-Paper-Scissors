@@ -76,10 +76,13 @@ function checkWinner() {
 function resetGame() {
   humanScore = 0;
   computerScore = 0;
-  overallWinner = "";
-  yourScore.textContent = "Your Score: 0";
-  compScore.textContent = "Computer Score: 0";
-  roundWinner.textContent = "";
+
+  document.getElementById("roundWinner").textContent = "";
+  document.getElementById("yourScore").textContent = "Your Score: 0";
+  document.getElementById("compScore").textContent = "Computer Score: 0";
+  document.getElementById("overallWinner").textContent = "";
+  document.getElementById("compSelection").textContent = "";
+  document.getElementById("userSelection").textContent = "";
 }
 
 /*Button functions, starts the game*/
