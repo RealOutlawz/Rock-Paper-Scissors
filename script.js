@@ -73,6 +73,16 @@ function checkWinner() {
   document.getElementById("overallWinner").textContent = overallWinner;
 }
 
+function resetGame() {
+  humanScore = 0;
+  computerScore = 0;
+  overallWinner = "";
+  yourScore.textContent = "Your Score: 0";
+  compScore.textContent = "Computer Score: 0";
+  roundWinner.textContent = "";
+}
+
+/*Button functions, starts the game*/
 document.getElementById("rock").addEventListener("click", () => {
   playRound("Rock");
 });
@@ -81,4 +91,8 @@ document.getElementById("paper").addEventListener("click", () => {
 });
 document.getElementById("scissors").addEventListener("click", () => {
   playRound("Scissors");
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  resetGame();
 });
