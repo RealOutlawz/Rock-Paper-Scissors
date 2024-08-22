@@ -80,8 +80,6 @@ function checkWinner() {
     overallWinner = "You won!";
   } else if (humanScore < computerScore) {
     overallWinner = "You lost!";
-  } else {
-    overallWinner = "You and the computer tied!";
   }
 
   document.getElementById("overallWinner").textContent = overallWinner;
