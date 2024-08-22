@@ -1,10 +1,8 @@
-//Initialize computer and users scores to 0
+// Initialize computer and user scores to 0
 let humanScore = 0;
 let computerScore = 0;
 
-/*get the computers choice, use math.random to
-    generate a number multiplied by 100 convert to a 
-    whole number and divide them out by 3 for each choice. */
+// Get the computer's choice
 function getComputerChoice() {
   let numGenerator = Math.floor(Math.random() * 100);
   if (numGenerator < 33) {
@@ -16,8 +14,7 @@ function getComputerChoice() {
   }
 }
 
-/* Get user choice and put them as argument to determine the winnner 
-and update the scores. */
+// Play a round and update scores
 function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
   document.getElementById(
@@ -47,18 +44,35 @@ function playRound(humanChoice) {
     roundWinner = "Tied! No winners, try again!";
   }
 
-  let yourScore = document.getElementById("yourScore");
-  let compScore = document.getElementById("compScore");
-
   document.getElementById("roundWinner").textContent = roundWinner;
-  yourScore.textContent = `Your Score: ${humanScore}`;
-  compScore.textContent = `Computer Score: ${computerScore}`;
+  document.getElementById("yourScoreValue").textContent = humanScore;
+  document.getElementById("compScoreValue").textContent = computerScore;
 
+  whoGetsGold();
+}
+
+// Check for winner and apply golden text to the winner's score
+function whoGetsGold() {
   if (humanScore >= 5 || computerScore >= 5) {
+    if (humanScore >= 5) {
+      document.getElementById("yourScoreValue").style.color = "gold";
+      disableButtons();
+    }
+    if (computerScore >= 5) {
+      document.getElementById("compScoreValue").style.color = "gold";
+      disableButtons();
+    }
     checkWinner();
   }
 }
+// Disables all buttons when the user or computer score hits 5
+function disableButtons() {
+  document.getElementById("rock").disabled = true;
+  document.getElementById("paper").disabled = true;
+  document.getElementById("scissors").disabled = true;
+}
 
+// Determine the overall winner
 function checkWinner() {
   let overallWinner = "";
 
@@ -73,19 +87,28 @@ function checkWinner() {
   document.getElementById("overallWinner").textContent = overallWinner;
 }
 
+// Reset the game
 function resetGame() {
   humanScore = 0;
   computerScore = 0;
 
   document.getElementById("roundWinner").textContent = "";
-  document.getElementById("yourScore").textContent = "Your Score: 0";
-  document.getElementById("compScore").textContent = "Computer Score: 0";
+  document.getElementById("yourScoreValue").textContent = "0";
+  document.getElementById("compScoreValue").textContent = "0";
   document.getElementById("overallWinner").textContent = "";
   document.getElementById("compSelection").textContent = "";
   document.getElementById("userSelection").textContent = "";
+
+  // Reset the score colors
+  document.getElementById("yourScoreValue").style.color = "";
+  document.getElementById("compScoreValue").style.color = "";
+  // Turns the buttons back on
+  document.getElementById("rock").disabled = false;
+  document.getElementById("paper").disabled = false;
+  document.getElementById("scissors").disabled = false;
 }
 
-/*Button functions, starts the game*/
+// Button functions, start the game
 document.getElementById("rock").addEventListener("click", () => {
   playRound("Rock");
 });
